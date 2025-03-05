@@ -1,54 +1,116 @@
-# React + TypeScript + Vite
+# 📦 Generic ShadCN Components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A reusable **ShadCN component library** built with React, TypeScript, and TailwindCSS for Lenscribe and other projects.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Installation
 
-## Expanding the ESLint configuration
+To use this component library in your project, install it via npm:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+npm install @jmau949/generic-shadcn-components
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# 📌 Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Import and use the components in your React project:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```tsx
+import { Button, Input, Card } from "@jmau949/generic-shadcn-components";
+
+export function ExampleComponent() {
+  return (
+    <Card>
+      <Input placeholder="Enter text here" />
+      <Button>Click Me</Button>
+    </Card>
+  );
+}
 ```
+
+# 🛠️ Adding New ShadCN Components
+
+To add a new component to the library:
+
+### Navigate to the repo:
+
+```sh
+cd generic-shadcn-components
+```
+
+### Add a new component using ShadCN CLI:
+
+```sh
+npx shadcn-ui@latest add [component-name]
+```
+
+**Example:**
+
+```sh
+npx shadcn-ui@latest add textarea
+```
+
+### Commit and push the new component:
+
+```sh
+git add .
+git commit -m "Added ShadCN component: [component-name]"
+git push origin main
+```
+
+Publish the updated package (see below).
+
+# 📢 Publishing a New Version to npm
+
+### Ensure you are logged into npm:
+
+```sh
+npm login
+```
+
+### Bump the version in package.json (e.g., from 1.0.0 to 1.0.1):
+
+```sh
+npm version patch
+```
+
+### Publish to npm:
+
+```sh
+npm publish --access public
+```
+
+### Update the package in consuming projects:
+
+```sh
+npm update @jmau949/generic-shadcn-components
+```
+
+# 🎯 Project Structure
+
+```pgsql
+generic-shadcn-components/
+│── components/
+│   ├── ui/
+│   │   ├── button.tsx
+│   │   ├── input.tsx
+│   │   ├── card.tsx
+│── src/
+│   ├── index.css
+│── dist/ (Generated build files)
+│── .gitignore
+│── index.ts (Exports all components)
+│── package.json
+│── postcss.config.cjs
+│── tailwind.config.ts
+│── tsconfig.json
+│── vite.config.ts
+│── README.md (You are here)
+```
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+
