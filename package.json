@@ -1,6 +1,6 @@
 {
   "name": "@jmau949/generic-shadcn-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable ShadCN components for Lenscribe and other projects",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
